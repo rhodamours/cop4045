@@ -15,12 +15,15 @@ while a != "":
     discrim = b**2 - 4 * a * c
 
     if discrim < 0:
-        print("no real solutions")
+        print("no real solutions\n")
     elif discrim == 0:
         x1 = (-b)/(2 * a)
-        print("one solution:", x1)
+        print("one solution:", x1, "\n")
     elif discrim > 0:
         x1 = (-b + math.sqrt(b**2 - 4 * a * c))/(2 * a)
         x2 = (-b - math.sqrt(b**2 - 4 * a * c))/(2 * a)
-        print("two solutions:", x1, ",", x2)
+        print("two solutions:", x1, ",", x2, "\n")
 
+    # show graph
+    fig = plt.figure()
+    plt.show()
