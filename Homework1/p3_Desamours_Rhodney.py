@@ -26,7 +26,6 @@ def find_max_dup(s):
         return ""
 
 text = input("Enter string: ")
-num = 0
 
 while text != "":
     # num = int(input("Enter substring length: "))
