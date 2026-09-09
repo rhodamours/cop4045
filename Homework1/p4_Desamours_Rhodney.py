@@ -25,6 +25,9 @@ def plot_function(fun_str, domain, ns):
         
     fig, ax = plt.subplots()
     ax.plot(xs, ys, 'o-')
+    plt.xlabel("x")
+    plt.ylabel("y")
+    plt.title(fun_str)
     plt.show()
     
 fun = input("Enter function with variable x: ")
