@@ -1,4 +1,6 @@
 def add_user(sn: dict, username: str, fullname: str) -> bool:
+    """Adds new user to the social network."""
+    
     if username in sn:
         return False
     else:
@@ -6,6 +8,8 @@ def add_user(sn: dict, username: str, fullname: str) -> bool:
         return True
         
 def add_friend(sn: dict, user1: str, user2: str) -> bool:
+    """Establishes friend connection between two users in the network."""
+    
     if user1 in sn and user2 in sn:
         sn[user1][1].append(user2)
         sn[user2][1].append(user1)
@@ -15,6 +19,9 @@ def add_friend(sn: dict, user1: str, user2: str) -> bool:
         return False
 
 def get_friends(sn: dict, user1: str, distance: int) -> list:
+    """Returns a list of the specified user's friends
+    at the requested distance"""
+    
     if user1 in sn:
         friends = {}
         dist = 1
@@ -40,20 +47,18 @@ def get_friends(sn: dict, user1: str, distance: int) -> list:
         return [friend for friend in friends]
     
 def save_network(filename: str, sn: dict) -> None:
+    """Saves network to file."""
+    
     f = open(filename, 'w')
     f.write(sn)
     f.close()
 
 def load_network(filename: str) -> dict:
+    """Loads network from file."""
+    
     f = open(filename, 'r')
     
     new_net = f.read()
     f.close()
     
     return new_net
-
-def main():
-    pass
-
-if __name__ == '__main__':
-    main()
