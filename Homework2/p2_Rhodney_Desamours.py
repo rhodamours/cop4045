@@ -24,5 +24,11 @@ e2 = {x: len(x) for x in s}
 
 text = "Hello world"
 
-f2 = {x: y for x, y in enumerate(text) if y.lower() == 'a' or y.lower() == 'e'
-      or y.lower() == 'i' or y.lower() == 'o' or y.lower() == 'u'}
+f2 = {x: y for x, y in enumerate(text) if y.lower() in 'aeiou'}
+
+print('a)', a2)
+print('b)', b2)
+print('c)', c2)
+print('d)', d2)
+print('e)', e2)
+print('f)', f2)

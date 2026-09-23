@@ -41,8 +41,8 @@ def get_friends(sn: dict, user1: str, distance: int) -> list:
     
 def save_network(filename: str, sn: dict) -> None:
     f = open(filename, 'w')
-    
     f.write(sn)
+    f.close()
 
 def load_network(filename: str) -> dict:
     f = open(filename, 'r')
@@ -51,3 +51,9 @@ def load_network(filename: str) -> dict:
     f.close()
     
     return new_net
+
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
