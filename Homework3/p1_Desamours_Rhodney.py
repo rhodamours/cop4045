@@ -1,7 +1,22 @@
 from testif import testif
 
 class NVector(object):
+    """N-dimensional vector of real numbers.
+    
+    Attributes:
+        elems (list): The elements of the vector as a list.
+    
+    """
+    
+    elems: list = []
+    
     def __init__(self, *nums):
+        """Turns nums into a list that represents the elements of the vector.
+        
+        Args:
+            nums: Any amount of numbers.
+        """
+        
         num_list = []
         
         for num in nums:
@@ -15,32 +30,49 @@ class NVector(object):
             self.elems = list(num_list)
     
     def __len__(self):
+        """Returns the number of elements in the vector."""
         return len(self.elems)
     
     def __getitem__(self, index: int):
+        """Returns the element at the specified index."""
         return self.elems[index]
     
     def __setitem__(self, index: int, value):
+        """Sets the element at the specified index to value."""
         self.elems[index] = value
         
     def __str__(self):
+        """Returns the list of elements as a string."""
         return str(self.elems)
     
-    def __eq__(self, vec: NVector):
+    def __eq__(self, other: NVector):
+        """Returns true if the list of elements of self and other are equal."""
+        
         try:
-            return self.elems == vec.elems
+            return self.elems == other.elems
         except AttributeError:
             return False
-        # attribute error if vector is not passed
     
-    def __ne__(self, vec: NVector):
+    def __ne__(self, other: NVector):
+        """Returns true if the list of elements of self and other
+        are not equal."""
+        
         try:
-            return self.elems != vec.elems
+            return self.elems != other.elems
         except AttributeError:
             return True
-        # attribute error if vector is not passed
     
     def __add__(self, other):
+        """Adds other to self. If other is another NVector, adds the elements
+        on aligning indexes. If other is a scalar, the scalar is added to
+        every element in self.
+        
+        Args:
+            other: The NVector or scalar to be added to self
+            
+        Returns:
+            The result of the addition of self and other."""
+        
         new_elems = []
         
         if type(other) is NVector:
@@ -67,9 +99,15 @@ class NVector(object):
         return NVector(new_elems)
     
     def __radd__(self, other):
+        """Calls __add__() if other is not an NVector and is added to self
+        in the form of other + self."""
+        
         return self + other
     
     def __mul__(self, other):
+        """Preforms the scalar multiplication of self and other. If other is
+        an NVector, returns the dot product."""
+        
         result = 0
         
         if type(other) is NVector:
@@ -88,10 +126,15 @@ class NVector(object):
         return result
                 
     def __rmul__(self, other):
+        """Calls __mul__() if other is not an NVector
+        and is multiplied with self in the form of other * self."""
+        
         return self * other
     
     @classmethod
-    def zeros(cls, n):
+    def zeros(cls, n: int):
+        """Returns a new NVector with dimension n
+        where all elements are 0."""
         return NVector([0] * n)
 
 def main():
@@ -118,7 +161,6 @@ def main():
     testif(4 * foo == 60, "rmul", "rmul is functional", "rmul failed")
     testif(NVector.zeros(4) == NVector(0, 0, 0, 0), "zeros",
            "zeros is functional", "zeros failed")
-            
 
 if __name__ == '__main__':
     main()

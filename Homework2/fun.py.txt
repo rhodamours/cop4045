@@ -1,0 +1,18 @@
+1. # File with sample functions.
+2. 
+3. def sum(x, y): # sums up two numbers
+4.     """ Adds two numbers.
+5.     Returns the sum."""
+6.     return x + y
+7. 
+8. # Returns the product.
+9. def mul(x, y): # multiplies two numbers
+10.     # z is a local variable
+11.     z = x * y
+12.     return z
+13. 
+14. def print_pretty(a):
+15.     print("The result is {:.3f}.".format(a))
+16. 
+17. # test these functions:
+18. print_pretty(mul(10, sum(3, 5)))
