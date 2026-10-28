@@ -69,18 +69,20 @@ faculty_fees = {
     'garage': 15.00
 }
 
-def summarize_list():
-    pass
+def summarize_list(permit_list):
+    revenue = 0
+    
+    for permit in permit_list:
+        print(f'{str(permit)} | Cost: {permit.cost()}')
+        revenue += permit.cost()
+    
+    return revenue
 
 def main():
     john = StudentPermit('John Frank', 8, student_fees, 2)
     bill = FacultyPermit('Billy Austin', 50, faculty_fees, True)
     
-    print(str(john))
-    print(str(bill))
-    
-    print(repr(john))
-    print(repr(bill))
+    print(summarize_list([john, bill]))
 
 if __name__ == '__main__':
     main()
