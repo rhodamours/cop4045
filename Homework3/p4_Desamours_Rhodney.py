@@ -87,10 +87,24 @@ def test_ed_find(filename, search_str):
                       'ed_find', 'ed_find is functional', 'ed_find failed')
 
 def main():
-    fn = 'afile.txt'
+    fn = 'fool.txt'
     
-    test_ed_replace(fn, 'apple', 'orange', -1)
-    test_ed_find(fn, 'chicken')
+    try:
+        with open(fn):
+            pass
+    except FileNotFoundError:
+        ed_append('madeafileforyou.txt',
+                  'applepicklebananaorangepicklecoffeecream')
+        fn = 'madeafileforyou.txt'
+    
+    print(ed_read(fn, 5, 14))
+    print(ed_find(fn, 'coffee'))
+    print(ed_replace(fn, 'pickle', 'jazz', 1))
+    print(ed_append(fn, 'juicebox'))
+    
+    
+    # test_ed_replace(fn, 'apple', 'orange', -1)
+    # test_ed_find(fn, 'pickle')
 
 if __name__ == '__main__':
     main()
