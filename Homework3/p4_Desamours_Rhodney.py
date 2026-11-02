@@ -103,8 +103,8 @@ def main():
     print(ed_append(fn, 'juicebox'))
     
     
-    # test_ed_replace(fn, 'apple', 'orange', -1)
-    # test_ed_find(fn, 'pickle')
+    test_ed_replace(fn, 'apple', 'orange', -1)
+    test_ed_find(fn, 'pickle')
 
 if __name__ == '__main__':
     main()

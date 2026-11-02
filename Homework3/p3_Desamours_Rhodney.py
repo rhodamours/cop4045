@@ -286,10 +286,10 @@ class Human(Animal):
             self.hunt_clock = self.hunt_time 
 
 ###########################################
-def main(predator_breed_time=6, predator_starve_time=3, initial_predators=16, \
+def main(predator_breed_time=6, predator_starve_time=3, initial_predators=25, \
          prey_breed_time=3, initial_prey=50, \
-         human_breed_time=6, human_starve_time=5, human_hunt_time=4, \
-            initial_humans=6, size=10, ticks=300):
+         human_breed_time=6, human_starve_time=5, human_hunt_time=3, \
+            initial_humans=20, size=10, ticks=300):
     ''' main simulation. Sets defaults, runs event loop, plots at the end
     '''
     # initialization values
