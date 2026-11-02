@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Oct 27 13:37:59 2026
-
-@author: judys
-"""
 import os
 from testif import testif
 
